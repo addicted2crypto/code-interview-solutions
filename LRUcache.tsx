@@ -29,6 +29,8 @@ class LRUCache {
     }
 
     put(key: string, value: string): void {
+        //void to show the return type method doesnt return anything 
+        // and is maintaining the messages type signature while catching errors
         if (this.cache.has(key)) {
             // this will uppdate usage
             this.usage = this.usage.filter(k => k !== key);
