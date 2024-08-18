@@ -4,7 +4,7 @@ class LRUCache {
     private capacity: number;
     private cache: Map<string, string>;
     private usage: string[];
-
+  
     constructor(capacity: number) {
         this.capacity = capacity;
         this.cache = new Map();
@@ -21,6 +21,11 @@ class LRUCache {
         this.usage.unshift(key);
 
         return this.cache.get(key)!;
+        //adding ! as we know is not not null or undefined ie (param of key)!
+        //similar to adding type inversion =>
+        // return this.cache.get(key) as string;
+        // or
+    //     return this.cache.get(key) || "";
     }
 
     put(key: string, value: string): void {
