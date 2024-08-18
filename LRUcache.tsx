@@ -21,7 +21,8 @@ class LRUCache {
         this.usage.unshift(key);
 
         return this.cache.get(key)!;
-        //adding ! as we know is not not null or undefined ie (param of key)!
+        //adding ! as we know is not not null or undefined ie (param of key) so we say to 
+        //typescript this will not be null!
         //similar to adding type inversion =>
         // return this.cache.get(key) as string;
         // or
