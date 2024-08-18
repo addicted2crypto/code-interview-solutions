@@ -40,7 +40,7 @@ class LRUCache {
             this.cache.delete(lruKey);
         }
 
-        // Add new entry
+        // Add new entry to the put
         this.cache.set(key, value);
         this.usage.unshift(key);
     }
