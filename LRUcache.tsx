@@ -4,20 +4,24 @@ class LRUCache {
     private capacity: number;
     private cache: Map<string, string>;
     private usage: string[];
-  
+    
     constructor(capacity: number) {
         this.capacity = capacity;
         this.cache = new Map();
         this.usage = [];
     }
+    
 
     get(key: string): string {
+        //gas method is boolean for key. if not found return string
         if (!this.cache.has(key)) {
             return "";
         }
+       
 
         // Update usage
         this.usage = this.usage.filter(k => k !== key);
+        //add new elements to the start with unshift
         this.usage.unshift(key);
 
         return this.cache.get(key)!;
@@ -37,6 +41,7 @@ class LRUCache {
             this.usage = this.usage.filter(k => k !== key);
         } else if (this.cache.size >= this.capacity) {
             // this will evict least recently used
+            //if we reach a capacity limit we pop off the overflow and delete the lrukey
             const lruKey = this.usage.pop()!;
             this.cache.delete(lruKey);
         }
