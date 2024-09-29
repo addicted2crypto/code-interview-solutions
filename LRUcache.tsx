@@ -13,7 +13,7 @@ class LRUCache {
     
 
     get(key: string): string {
-        //gas method is boolean for key. if not found return string
+        //get method is boolean for key. if not found return string
         if (!this.cache.has(key)) {
             return "";
         }
