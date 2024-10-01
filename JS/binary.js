@@ -23,12 +23,12 @@ function binarySearch(arr, target) {
          got the answer */
         if(arr[middleOfElements] === target) return middleOfElements; 
         if(arr[middleOfElements] < target){
-            /*If middle is less than target we want to discard everything element
-             wise to the left boundary (middle + 1)*/
+            /*If middle is less than target we want to discard everything 
+             to the left boundary (middle + 1)*/
             left = middleOfElements + 1;
         } else {
             /* If the middle is greater than target we want to discard everything 
-            element wise to the right of search boundary or of the pointer middle - 1 */
+             to the right of search boundary or of the pointer middle - 1 */
 
             right = middleOfElements - 1;
         }
