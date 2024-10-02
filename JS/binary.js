@@ -20,7 +20,7 @@ function binarySearch(arr, target) {
         do potentially */
         const middleOfElements = left + Math.floor((right - left) / 2);
         /* If arr[middleOfElements] is the target return middleOfElements yahoo we
-         got the answer */
+         got the answer we can return the correct answer and exit loops */
         if(arr[middleOfElements] === target) return middleOfElements; 
         if(arr[middleOfElements] < target){
             /*If middle is less than target we want to discard everything 
