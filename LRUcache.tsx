@@ -46,7 +46,7 @@ class LRUCache {
             this.cache.delete(lruKey);
         }
 
-        // Add new entry to the put
+        // Add new entry to the put could also pop
         this.cache.set(key, value);
         this.usage.unshift(key);
     }
