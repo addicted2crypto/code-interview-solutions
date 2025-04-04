@@ -21,7 +21,8 @@ class LRUCache {
 
         // Update usage
         this.usage = this.usage.filter(k => k !== key);
-        //add new elements to the start with unshift
+        //this will remove the key from usage array if it exists
+        
         this.usage.unshift(key);
 
         return this.cache.get(key)!;
