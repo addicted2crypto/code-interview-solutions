@@ -13,7 +13,8 @@ function maxChar(str) {
     for (let char of str) {
         charMap[char] = charMap[char] + 1 || 1;
 
-    }
+    }       
+  
     for(let key in charMap){
         if (charMap[key] > maxCount) {
         maxCount = charMap[key];
@@ -25,4 +26,6 @@ function maxChar(str) {
     }
 
     console.log(maxChar("hello")); // "l"
-    console.log(maxChar("character")); // "c" or "a"    
+    console.log(maxChar("character")); // "c" or "a" 
+    console.log(maxChar("aabbcc")); // "a" or "b" or "c"
+    console.log(maxChar("abc")); // "a" or "b" or "c"   
