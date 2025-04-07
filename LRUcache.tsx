@@ -1,5 +1,6 @@
 
-//Cmon you knew better.... this is actually thinking through the solution
+//Cmon you knew better.... this is actually thinking through the solution LRUCache
+//LRUCache is a data structure that stores a limited number of items and evicts the least recently used item when the limit is reached.
 class LRUCache {
     private capacity: number;
     private cache: Map<string, string>;
