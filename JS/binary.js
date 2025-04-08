@@ -15,7 +15,7 @@
 
 function binarySearch(arr, target) {
     let left = 0;
-    let right = arr.length - 1;
+    let right = arr.length - 1;  //last index of the array-> loop until the left pointer is less than or equal to the right pointer
 
     while(left <= right) {
         /* Using (right - left) prevents possible overflow as (left + right) could 
