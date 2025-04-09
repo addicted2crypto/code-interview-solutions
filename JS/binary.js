@@ -34,7 +34,8 @@ function binarySearch(arr, target) {
 
             right = middleOfElements - 1;
         }
-        /* as stated in problem if we didnt hit the target element we return -1 */
+        /* as stated in problem if we didnt hit the target element we return -1 this
+         would be your catch all else statement*/
         return -1;
     }
 
