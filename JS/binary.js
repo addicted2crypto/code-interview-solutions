@@ -2,7 +2,9 @@
 // Given a sorted array of integers and an integer called target, find the element that 
 // equals the target and return its index. If the element is not found return -1.
 
-//BS Problem
+//Binanry Search Problem 
+
+// create left and right(with value.length - 1) dual pointers to cut output in half every iteration
 
 
 
