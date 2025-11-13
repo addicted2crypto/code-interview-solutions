@@ -17,28 +17,31 @@
 
 function binarySearch(arr, target) {
     let left = 0;
-    let right = arr.length - 1;  //last index of the array-> loop until the left pointer is less than or equal to the right pointer
+    let right = arr.length - 1;
 
     while(left <= right) {
-        /* Using (right - left) prevents possible overflow as (left + right) could 
-        do potentially */
-        const middleOfElements = left + Math.floor((right - left) / 2);
-        /* If arr[middleOfElements] is the target return middleOfElements yahoo we
-         got the answer we can return the correct answer and exit loops */
-        if(arr[middleOfElements] === target) return middleOfElements; 
-        if(arr[middleOfElements] < target){
-            /*If middle is less than target we want to discard everything 
-             to the left boundary (middle + 1)*/
-            left = middleOfElements + 1;
-        } else {
-            /* If the middle is greater than target we want to discard everything 
-             to the right of search boundary or of the pointer middle - 1 */
+        // Using (right - left) prevents integer overflow
+        const mid = left + Math.floor((right - left) / 2);
 
-            right = middleOfElements - 1;
+        if(arr[mid] === target) {
+            return mid; // Found the target
         }
-        /* as stated in problem if we didnt hit the target element we return -1 this
-         would be your catch all else statement*/
-        return -1;
+
+        if(arr[mid] < target) {
+            left = mid + 1; // Search right half
+        } else {
+            right = mid - 1; // Search left half
+        }
     }
 
+    // Target not found
+    return -1;
 }
+
+// Test cases
+console.log(binarySearch([1, 3, 5, 7, 9, 11], 7));  // Expected: 3
+console.log(binarySearch([1, 3, 5, 7, 9, 11], 1));  // Expected: 0
+console.log(binarySearch([1, 3, 5, 7, 9, 11], 11)); // Expected: 5
+console.log(binarySearch([1, 3, 5, 7, 9, 11], 6));  // Expected: -1
+console.log(binarySearch([], 5));                    // Expected: -1
+console.log(binarySearch([5], 5));                   // Expected: 0
