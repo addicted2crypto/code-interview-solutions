@@ -6,26 +6,30 @@
 
 
 function maxChar(str) {
-    const charMap = {};
+    if (!str) return '';
+
+    const charMap = new Map();
     let maxChar = '';
     let maxCount = 0;
-    
-    for (let char of str) {
-        charMap[char] = charMap[char] + 1 || 1;
 
-    }       
-  
-    for(let key in charMap){
-        if (charMap[key] > maxCount) {
-        maxCount = charMap[key];
-        maxChar = key;
+    for (let char of str) {
+        const count = (charMap.get(char) || 0) + 1;
+        charMap.set(char, count);
+
+        // Track max while building the map (single pass optimization)
+        if (count > maxCount) {
+            maxCount = count;
+            maxChar = char;
         }
     }
-    
-    return maxChar;
-    }
 
-    console.log(maxChar("hello")); // "l"
-    console.log(maxChar("character")); // "c" or "a" 
-    console.log(maxChar("aabbcc")); // "a" or "b" or "c"
-    console.log(maxChar("abc")); // "a" or "b" or "c"   
+    return maxChar;
+}
+
+// Test cases
+console.log(maxChar("hello"));      // "l"
+console.log(maxChar("character"));  // "c" or "a"
+console.log(maxChar("aabbcc"));     // "a"
+console.log(maxChar("abc"));        // "a"
+console.log(maxChar(""));           // ""
+console.log(maxChar("aaabbbbbcc")); // "b"
