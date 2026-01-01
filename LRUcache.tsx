@@ -3,7 +3,8 @@
 // Space Complexity: O(capacity)
 
 // Node class for doubly linked list
-// Each node represents a cache entry with key, value, and pointers to prev/next nodes
+// Each node represents a cache entry with key, value, and pointers to 
+// prev/next nodes
 class DoublyLinkedListNode {
     key: string;
     value: string;
@@ -132,7 +133,7 @@ class LRUCache {
         }
     }
 }
-
+//add limit to cache size to aviod memory overflow
 // Example Usage:
 // const cache = new LRUCache(2);
 // cache.put("a", "1");     // cache: {a=1}
