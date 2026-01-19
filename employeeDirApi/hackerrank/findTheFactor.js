@@ -1,6 +1,6 @@
 // Find the factor
 
-// You are given two intefers, n and p.
+// You are given two integars, n and p.
 // A factor of n is any positive integar that divides n with no remainder.
 // Your task is to:
 // - find all positive factors of n
