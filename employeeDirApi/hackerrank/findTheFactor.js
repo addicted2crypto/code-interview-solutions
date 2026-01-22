@@ -19,7 +19,7 @@
 // 1 <= = <= 10^9 
 
 //BigInt didn't work in hackerrand so had to get a brute force on the board, will optimize to run more efficiently later 
-//I will add a const small and const large array to sort as I go to avoid sorting at the end
+//I will add a const small and const large array to sort as I go to avoid sorting at the end asc and descending
 
 function findTheFactor(n, p) {
     const factors = [];
