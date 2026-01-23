@@ -24,7 +24,7 @@
 function findTheFactor(n, p) {
     const factors = [];
 
-    //find factors up to sqrt(n) ->
+    //find factors up to sqrt(n) -> using i * i instead of Math.sqrt due to floating point precision issues
 
     for(let i = 1; i * i <= n; i++) {
         if(n % i === 0) {
