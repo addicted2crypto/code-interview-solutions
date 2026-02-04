@@ -1,0 +1,39 @@
+-- Test schema to spot issues
+
+CREATE TABLE department (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL UNIQUE,
+  description VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE address (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  street_address_1 VARCHAR(255) NOT NULL,
+  street_address_2 VARCHAR(255),
+  city VARCHAR(255) NOT NULL,
+  state VARCHAR(2) NOT NULL,
+  zip VARCHAR(5) NOT NULL,
+  zip_ext VARCHAR(4),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE employee (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(255) NOT NULL,
+  middle_name VARCHAR(255),
+  last_name VARCHAR(255) NOT NULL,
+  salary DECIMAL(10,2) NOT NULL,
+  address_id BIGINT,
+  department_id BIGINT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (address_id) REFERENCES address(id) ON DELETE SET NULL,
+  FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE RESTRICT
+);
+
+CREATE INDEX idx_employee_address_id ON employee(address_id);
+CREATE INDEX idx_employee_department_id ON employee(department_id);
+CREATE INDEX idx_employee_last_name ON employee(last_name);
