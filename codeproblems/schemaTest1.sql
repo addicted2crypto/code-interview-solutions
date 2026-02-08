@@ -38,7 +38,7 @@ CREATE INDEX idx_employee_last_name ON employee(last_name);
 
 
 -- ============================================================================
--- INTERVIEW QUESTIONS: Identify the problems in these table designs
+-- INTERVIEW PRACTICE QUESTIONS: Identify the problems in these table designs
 -- ============================================================================
 
 -- QUESTION 1: What's wrong with this employee_bad table?
