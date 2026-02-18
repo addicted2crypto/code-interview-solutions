@@ -1,4 +1,4 @@
--- Test schema to spot issues
+-- Test schema to spot issues DID NOT GET THE JOB
 
 CREATE TABLE department (
   id BIGINT PRIMARY KEY AUTO_INCREMENT,
